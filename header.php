@@ -3,13 +3,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>"/>
     <!--
-     __   __  _______  __    _  _______  _______  __   __  _______  __   __  ______      _______  _______  _______  _______ 
-    |  | |  ||   _   ||  |  | ||       ||       ||  | |  ||       ||  | |  ||    _ |    |       ||  _    ||       ||       |
-    |  |_|  ||  |_|  ||   |_| ||       ||   _   ||  | |  ||    ___||  | |  ||   | ||    |____   || | |   ||____   ||___    |
-    |       ||       ||       ||       ||  | |  ||  |_|  ||   |___ |  |_|  ||   |_||_    ____|  || | |   | ____|  | ___|   |
-    |       ||       ||  _    ||      _||  |_|  ||       ||    ___||       ||    __  |  | ______|| |_|   || ______||___    |
-     |     | |   _   || | |   ||     |_ |       ||       ||   |    |       ||   |  | |  | |_____ |       || |_____  ___|   |
-      |___|  |__| |__||_|  |__||_______||_______||_______||___|    |_______||___|  |_|  |_______||_______||_______||_______|
+    VancouFur 2024
   
 	Credits:
 
@@ -17,12 +11,8 @@
 
     Photos owned by their respective owners
 
-	My Little Pony © Hasbro
-
-	The site and all other assets © Vancoufur & The BC Anthropomorphic Events Association
-	Site created with love and coffee by LinuxPony
-
-	Also join #ponydev
+	The site and all other assets © VancouFur & The BC Anthropomorphic Events Association
+	Site created with love and coffee by LinuxAvali
     -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0"/>
     <?php wp_head(); ?>

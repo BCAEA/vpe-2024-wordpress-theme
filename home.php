@@ -3,7 +3,7 @@ get_header();
 $page_id = get_option('page_for_posts', true);
 ?>
 <main id="content" class="standard blog">
-    <?php vf_do_slider_or_image($page_id) ?>
+    <div class="nav-spacer"></div>
     <article id="post-<?php echo $page_id ?>" <?php post_class("", $page_id); ?>>
         <header class="header">
             <h1 class="entry-title"><?php echo get_the_title($page_id); ?></h1>

@@ -1,6 +1,6 @@
 <?php
 
-define('VF_THEME_VER', '1.5.4');
+define('VF_THEME_VER', '1.6.0');
 
 add_action('after_setup_theme', 'vancoufur_setup');
 function vancoufur_setup() {
@@ -349,185 +349,32 @@ function kill_404_redirect_wpse_92103() {
 }
 add_action('template_redirect','kill_404_redirect_wpse_92103',1);
 
-function vf_add_custom_box() {
-    $screens = ['post', 'page', 'product'];
-    foreach ($screens as $screen) {
-        add_meta_box(
-            'vf_theme_options',                 // Unique ID
-            'Theme Options',      // Box title
-            'vf_custom_box_html',  // Content callback, must be of type callable
-            $screen                            // Post type
-        );
-    }
-}
-add_action( 'add_meta_boxes', 'vf_add_custom_box' );
-
-function vf_custom_box_html($post) {
-    $vf_header_type = get_post_meta($post->ID, '_vf_header_type', true) ?? '';
-    $vf_sr = get_post_meta($post->ID, '_vf_sr', true) ?? '';
-    $vf_image = get_post_meta($post->ID, '_vf_image', true) ?? '';
+function vancoufur_show_latest_news() {
+    $the_query = new WP_Query( array(
+        'category_name' => 'news',
+        'posts_per_page' => 3,
+    ));
     ?>
-    <label for="vf_header_type">Post Header Type:</label>
-    <br>
-    <select name="vf_header_type" id="vf_header_type" class="postbox">
-        <option value=""<?php selected($vf_header_type, '', true); ?>>None</option>
-        <?php if(class_exists("RevSlider")){ ?>
-        <option value="sr"<?php selected($vf_header_type, 'sr', true); ?>>Slider Revolution</option>
+    <div class="news-wrapper">
+        <h2 class="news-title">LATEST NEWS</h2>
+        <?php if ($the_query->have_posts()) { ?>
+            <div class="news-container">
+                <?php while ($the_query->have_posts()) {
+                    $the_query->the_post(); ?>
+                    <div class="news-item">
+                        <?php the_post_thumbnail(); ?>
+                        <div class="news-content">
+                            <h3><?php the_title(); ?></h3>
+                            <a href="<?php echo get_permalink(); ?>">READ MORE</a>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+            <?php wp_reset_postdata();
+        } else { ?>
+            <p><?php __('No News :\'('); ?></p>
         <?php } ?>
-        <option value="image"<?php selected($vf_header_type, 'image', true); ?>>Image</option>
-    </select>
-    <div id="vf-sr-wrapper">
-    <?php
-    if(class_exists("RevSlider")){
-        $slider = new RevSlider();
-        $objSliders = $slider->get_sliders();
-        // CREATE OPTIONS FOR SLIDER SELECTBOX
-        ?>
-        <label for="vf_sr">Slider Selection:</label>
-        <br>
-        <select name="vf_sr" id="vf_sr" class="postbox">
-            <option value=""<?php selected($vf_sr, '', true); ?>>(None)</option>
-        <?php
-        foreach($objSliders as $slider){ ?>
-            <option value="<?php echo $slider->alias; ?>"
-                <?php selected($vf_sr, $slider->alias, true)?>>
-                <?php echo $slider->title; ?>
-            </option>
-        <?php }
-    } ?></select>
     </div>
-    <div id="vf-picture-wrapper">
-    <label for="vf_image">Image Selection:</label>
-    <br>
-    <input type="text" name="vf_image" id="vf_image" class="postbox" readonly="readonly" value="<?php echo $vf_image ?>">
-    <img id="vf_image_preview" src="" height="25" style="width: auto;">
-    <button id="vf_image_picker">Choose...</button>
-    </div>
-    <script>
-        let file_frame;
-        jQuery(function ($){
-            function vfMediaPicker(e) {
-                e.preventDefault();
-                let field = $('#vf_image');
-
-                // Uploading files
-                let wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
-                let set_to_post_id = field.val();
-
-                // If the media frame already exists, reopen it.
-                if (file_frame) {
-                    // Set the post ID to what we want
-                    file_frame.uploader.uploader.param('post_id', set_to_post_id);
-                    // Open frame
-                    file_frame.open();
-                    return;
-                } else {
-                    // Set the wp.media post id so the uploader grabs the ID we want when initialised
-                    wp.media.model.settings.post.id = set_to_post_id;
-                }
-
-                // Create the media frame.
-                file_frame = wp.media.frames.file_frame = wp.media({
-                    title: 'Select a image to upload',
-                    button: {
-                        text: 'Use this image',
-                    },
-                    multiple: false	// Set to true to allow multiple files to be selected
-                });
-
-                // When an image is selected, run a callback.
-                file_frame.on('select', function() {
-                    // We set multiple to false so only get one image from the uploader
-                    let attachment = file_frame.state().get('selection').first().toJSON();
-
-                    // Do something with attachment.id and/or attachment.url here
-                    $('#vf_image_preview').attr('src', attachment.url);
-                    field.val( attachment.id );
-
-                    // Restore the main post ID
-                    wp.media.model.settings.post.id = wp_media_post_id;
-                });
-
-                // Finally, open the modal
-                file_frame.open();
-            }
-            function vfAdjustView(e) {
-                if(e) e.preventDefault();
-                $('#vf-sr-wrapper, #vf-picture-wrapper').hide();
-                switch ($('#vf_header_type').val()) {
-                    case "sr":
-                        $('#vf-sr-wrapper').show();
-                        break;
-                    case "image":
-                        $('#vf-picture-wrapper').show();
-                        break;
-                    case "":
-                    default:
-                        break;
-                }
-            }
-            function vfLoadImageAsync(attachment, target){
-                if(!attachment || !target) return;
-                if (!wp.media.attachment(attachment).get('url')) {
-                    wp.media.attachment(attachment).fetch().then(function () {
-                        $(target).attr('src', wp.media.attachment(attachment).get('url')).css( 'width', 'auto' );
-                    });
-                } else {
-                    $(target).attr('src', wp.media.attachment(attachment).get('url')).css( 'width', 'auto' );
-                }
-            }
-            $('#vf_image_picker').on('click', vfMediaPicker);
-            $('#vf_header_type').on('change', vfAdjustView);
-            vfLoadImageAsync($("#vf_image").val(),"#vf_image_preview");
-            vfAdjustView();
-        });
-    </script>
     <?php
 }
-
-function vf_save_postdata($post_id) {
-    if (array_key_exists('vf_header_type', $_POST)) {
-        update_post_meta(
-            $post_id,
-            '_vf_header_type',
-            $_POST['vf_header_type']
-        );
-    } else {
-        delete_post_meta($post_id, '_vf_header_type');
-    }
-    if (array_key_exists('vf_sr', $_POST)) {
-        update_post_meta(
-            $post_id,
-            '_vf_sr',
-            $_POST['vf_sr']
-        );
-    } else {
-        delete_post_meta($post_id, '_vf_sr');
-    }
-    if (array_key_exists('vf_image', $_POST)) {
-        update_post_meta(
-            $post_id,
-            '_vf_image',
-            $_POST['vf_image']
-        );
-    } else {
-        delete_post_meta($post_id, '_vf_image');
-    }
-}
-add_action('save_post', 'vf_save_postdata');
-
-function vf_do_slider_or_image($id = null) {
-    $id = $id ?? get_post()->ID;
-    $vf_header_type = get_post_meta($id, '_vf_header_type', true) ?? '';
-
-    if($vf_header_type == 'sr'){
-        $vf_sr = get_post_meta($id, '_vf_sr', true) ?? '';
-        echo do_shortcode('[rev_slider alias="' . $vf_sr . '"][/rev_slider]');
-    } else if ($vf_header_type == 'image'){
-        $vf_image = get_post_meta($id, '_vf_image', true) ?? '';
-        echo '<img class="cover-image" src="' . wp_get_attachment_image_url($vf_image, 'full', false) . '">';
-        echo '<div class="cover-image-spacer"></div>';
-    } else {
-        echo '<div class="no-content-spacer"></div>';
-    }
-}
+add_shortcode('vancoufur_news', 'vancoufur_show_latest_news');

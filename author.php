@@ -1,6 +1,6 @@
 <?php get_header(); ?>
     <main id="content" class="standard">
-        <?php vf_do_slider_or_image() ?>
+        <div class="nav-spacer"></div>
         <header class="header">
             <?php the_post(); ?>
             <h1 class="entry-title author"><?php the_author_link(); ?></h1>

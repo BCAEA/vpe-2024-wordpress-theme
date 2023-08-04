@@ -2,8 +2,8 @@
     <main id="content" class="standard">
         <?php if (have_posts()){
             while (have_posts()){
-                the_post();
-                vf_do_slider_or_image(); ?>
+                the_post(); ?>
+        <div class="nav-spacer"></div>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <header class="header">
                 <h1 class="entry-title"><?php the_title(); ?></h1>

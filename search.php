@@ -1,6 +1,6 @@
 <?php get_header(); ?>
     <main id="content" class="standard">
-        <?php vf_do_slider_or_image() ?>
+        <div class="nav-spacer"></div>
         <?php if(have_posts()){ ?>
             <header class="header">
                 <h1 class="entry-title"><?php printf( esc_html__( 'Search Results for: &ldquo;%s&rdquo;', 'vancoufur' ), get_search_query() ); ?></h1>

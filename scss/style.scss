@@ -1,10 +1,10 @@
 /*!
-Theme Name: Vancoufur 2023 WordPress Theme
-Theme URI: https://github.com/sonicer105/vf-2023
+Theme Name: Vancoufur 2024 WordPress Theme
+Theme URI: https://github.com/sonicer105/vf-2024
 Author: Vancoufur, LinuxPony
 Author URI: https://vancoufur.org/
-Description: WordPress Theme for Vancoufur 2023. Released under the GPL.
-Version: 1.5.4
+Description: WordPress Theme for Vancoufur 2024. Released under the GPL.
+Version: 1.6.0
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column
@@ -16,10 +16,15 @@ BlankSlate is distributed under the terms of the GNU GPL
 @import "fonts";
 @import "reset";
 
+$accent-bg: #698c88;
+$footer-bg: #261609;
+$main-bg: #bfb7ac;
+$cta-accent: #d78645;
+
 /*#region General Style */
 
 html {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Smythe', sans-serif;
 }
 
 b, strong {
@@ -31,7 +36,7 @@ i, em {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Minerva', sans-serif;
 }
 
 h1 {
@@ -71,11 +76,11 @@ h6 {
 }
 
 p {
-    padding: 0.5em 0;
+    margin: 0.5em 0;
 }
 
 p, ul > li, ol > li {
-    line-height: 1.3rem;
+    line-height: 1.25em;
 }
 
 hr {
@@ -91,6 +96,10 @@ html, body {
 
 #wrapper {
     min-height: 100%;
+}
+
+#container {
+    font-size: 24pt;
 }
 
 html {
@@ -111,11 +120,11 @@ body {
 
 a {
     &:link, &:visited {
-        color: #4b9aa3;
+        color: darken($cta-accent, 10%);
     }
 
     &:hover, &:active {
-        color: #6ef0ed;
+        color: $cta-accent;
     }
 }
 
@@ -173,8 +182,8 @@ input[type="password"], textarea {
 
 /*#region Container Layout */
 
-#content.standard {
-    max-width: 1280px;
+#content {
+    max-width: 1600px;
     width: auto;
     margin: 0 auto 1em auto;
 
@@ -191,11 +200,8 @@ input[type="password"], textarea {
         height: 500px;
         object-fit: cover;
     }
-    .cover-image-spacer {
-        height: 500px;
-    }
-    .no-content-spacer {
-        height: 50px;
+    .nav-spacer {
+        height: 4rem;
     }
 
     .entry-column-wrapper {
@@ -219,9 +225,35 @@ input[type="password"], textarea {
 
     }
 }
+@media (max-width: 600px) {
+    .admin-bar body:not(.vc_editor) #content .nav-spacer {
+        height: 1rem;
+    }
+}
+
+body.page-template-page-bg-no-title,
+body.page-template-page-bg-with-title,
+body.blog,
+body.single.single-post {
+
+    //noinspection ALL
+    #wrapper {
+        background: $main-bg url(./img/bg.png) repeat-y;
+        background-size: 100% auto;
+    }
+
+    //noinspection ALL
+    &.webp-support #wrapper {
+        background-image: url(./img/bg.webp);
+    }
+
+    #content article {
+        padding-top: 0;
+    }
+}
 
 .news-wrapper {
-    padding: 1rem;
+    //padding: 1rem;
 
     .news-title {
         font-weight: normal;
@@ -262,14 +294,16 @@ input[type="password"], textarea {
 /*#region Header & Navigation */
 
 #menu {
+    font-family: 'Minerva', sans-serif;
     z-index: 100;
-    background-color: rgba(0,0,0,0.8);
+    background-color: #000000;
     color: #ffffff;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    padding: 0 1em;
+    padding: 0 1rem;
+    font-size: 1.5em;
 
     a {
         text-decoration: none;
@@ -280,34 +314,34 @@ input[type="password"], textarea {
         }
 
         &:hover, &:active {
-            color: #4b9aa3;
+            color: $cta-accent;
         }
     }
 
     .menu-toggle-mobile {
         display: none;
         position: absolute;
-        top: 0.5em;
-        right: 0.5em;
-        height: 1em;
-        width: 1em;
-        font-size: 2em;
+        top: 0;
+        right: 0;
+        height: 2rem;
+        width: 2rem;
+        padding: 1rem;
+        font-size: 2rem;
         z-index: 10;
     }
 
     @media screen and (max-width: 1350px) {
         .menu-toggle-mobile {
-            display: block;
+            display: inline-table;
         }
     }
 
     .nav-wrapper {
         text-transform: uppercase;
-        height: 3em;
         @media screen and (max-width: 1350px) {
-            height: 4em;
+            height: 4rem;
+            transition: 250ms height;
         }
-        transition: 250ms height;
 
         ul {
             list-style: none;
@@ -324,11 +358,12 @@ input[type="password"], textarea {
                 flex-grow: 1;
 
                 img {
-                    height: 1.75em;
+                    height: 2.5rem;
                     object-fit: contain;
+                    transition: 250ms height;
 
                     @media screen and (max-width: 1350px) {
-                        height: 3.5em;
+                        height: 3.5rem;
                     }
 
                     @media screen and (max-width: 678px) {
@@ -350,19 +385,18 @@ input[type="password"], textarea {
 
             & > .menu-item > a {
                 display: block;
-                padding: 1em 0.5em;
-            }
-
-            a {
-                transition: 250ms;
-
-                &:hover {
-                    background: #222222;
+                padding: 1.5rem 0.5rem;
+                .svg-inline--fa.fa-caret-down {
+                    font-size: 1rem;
                 }
             }
 
+            a {
+                transition: 250ms color;
+            }
+
             .current_page_item a, .current-menu-ancestor > a {
-                color: #6ef0ed;
+                color: $cta-accent;
             }
 
             .menu-item-has-children {
@@ -374,12 +408,12 @@ input[type="password"], textarea {
                     top: -1000vh;
                     left: 0;
                     padding: 0;
-                    background: #333333;
+                    background: #000000;
                     width: auto;
 
                     .menu-item > a {
                         display: block;
-                        padding: 0.75em 1em;
+                        padding: 0.75rem 1rem;
                         width: 100%;
                         white-space: nowrap;
                     }
@@ -407,8 +441,8 @@ input[type="password"], textarea {
 
                 img {
                     display: block;
-                    height: 3.5em;
-                    margin: 0.25em auto;
+                    height: 3.5rem;
+                    margin: 0.25rem auto;
                 }
 
                 .main-menu > ul {
@@ -428,7 +462,7 @@ input[type="password"], textarea {
             }
 
             #search {
-                padding: 0.5em 1em;
+                padding: 0.5rem;
             }
         }
     }
@@ -439,13 +473,19 @@ nav ul > li {
 }
 
 html {
-    &.admin-bar #menu {
+    &.admin-bar body:not(.vc_editor) #menu {
         top: 32px;
     }
 
     @media screen and (max-width: 782px) {
-        &.admin-bar #menu {
+        &.admin-bar body:not(.vc_editor) #menu {
             top: 46px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        &.admin-bar body:not(.vc_editor) #menu {
+            top: 0;
         }
     }
 }
@@ -453,7 +493,7 @@ html {
 @media screen and (max-width: 1350px) {
     #menu.active {
         .menu-toggle-mobile {
-            color: #6ef0ed;
+            color: $cta-accent;
         }
 
         .nav-wrapper {
@@ -468,12 +508,13 @@ html {
 /*#region Footer Layout */
 
 #footer {
-    background: #4792a0;
+    background: $footer-bg;
     width: 100%;
     min-height: 6rem;
     padding: 1rem 0;
 
     .copyright {
+        padding: 2em 0 1em 0;
         text-align: center;
         color: #ffffff;
     }
@@ -487,6 +528,7 @@ html {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        font-family: 'Minerva', sans-serif;
 
         @media (max-width: 768px) {
             flex-direction: column;
@@ -510,10 +552,10 @@ html {
                 text-decoration: none;
 
                 &:link, &:visited {
-                    color: #000000;
+                    color: #ffffff;
                 }
                 &:hover, &:active {
-                    color: #ffffff;
+                    color: $cta-accent;
                 }
             }
             .social-links {
@@ -610,7 +652,7 @@ html {
 }
 
 body.search-results {
-    #content.standard .entry-title {
+    #content .entry-title {
         text-align: left;
     }
 
@@ -674,16 +716,19 @@ article.has-post-thumbnail {
     }
 
     a {
-        font-size: 2rem;
+        font-size: 4rem;
         font-weight: bold;
         display: inline-block;
         text-decoration: none;
-        padding: 1.25rem 2rem;
-        color: #000;
+        padding: 2rem 8rem;
+        color: #fff;
         border-radius: 1rem;
-        background: rgba(110,240,237,1);
-        background: linear-gradient(0deg, rgba(110,240,237,1) 0%, rgba(75,154,163,1) 100%);
+        background: $footer-bg;
         white-space: nowrap;
+
+        @media (max-width: 1280px) {
+            padding: 2rem 2rem;
+        }
     }
 }
 
@@ -833,7 +878,7 @@ aside {
 }
 
 @media screen and (min-width: 960px) {
-    #content.standard.has-sidebar .entry-wrapper {
+    #content.has-sidebar .entry-wrapper {
         display: flex;
         flex-direction: row;
 
@@ -1695,6 +1740,12 @@ aside .widget-container ul li {
 
 .scroll-lock {
     overflow: hidden;
+}
+
+.center-on-sm {
+    @media (max-width: 767px) {
+        text-align: center;
+    }
 }
 
 /*#endregion*/

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <main id="content" class="standard blog">
-    <?php vf_do_slider_or_image() ?>
+    <div class="nav-spacer"></div>
     <header class="header">
         <?php $shop_page = get_post(get_option('woocommerce_shop_page_id'));
         $title = get_the_archive_title();

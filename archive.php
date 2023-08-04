@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <main id="content" class="standard blog">
-    <?php vf_do_slider_or_image() ?>
+    <div class="nav-spacer"></div>
     <header class="header">
         <h1 class="blog-title">Blog</h1>
         <?php the_archive_description('<div class="archive-meta">', '</div>') ?>
