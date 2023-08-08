@@ -20,15 +20,17 @@
 <body <?php body_class(); ?>>
 <div id="wrapper" class="hfeed">
     <header id="header">
-        <nav id="menu">
-            <a href="#" aria-hidden="true" class="menu-toggle-mobile"><span class="fas fa-bars"></span></a>
-            <div class="nav-wrapper">
-                <div class="menu-wrapper">
-                    <a href="/" id="head-nav-img"><img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="Vancoufur Logo"></a>
-                    <?php wp_nav_menu(array('theme_location' => 'main-menu', 'container_class' => 'main-menu')); ?>
-                    <div id="search"><?php get_search_form(['main-nav' => true]); ?></div>
+        <div class="nav-container">
+            <nav id="menu">
+                <a href="#" aria-hidden="true" class="menu-toggle-mobile"><span class="fas fa-bars"></span></a>
+                <div class="nav-wrapper">
+                    <div class="menu-wrapper">
+                        <a href="/" id="head-nav-img"><img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="Vancoufur Logo"></a>
+                        <?php wp_nav_menu(array('theme_location' => 'main-menu', 'container_class' => 'main-menu')); ?>
+                        <div id="search"><?php get_search_form(['main-nav' => true]); ?></div>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
     <div id="container">

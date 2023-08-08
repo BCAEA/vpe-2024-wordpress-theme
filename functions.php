@@ -1,6 +1,6 @@
 <?php
 
-define('VF_THEME_VER', '1.6.0');
+define('VF_THEME_VER', '1.7.0');
 
 add_action('after_setup_theme', 'vancoufur_setup');
 function vancoufur_setup() {
@@ -348,6 +348,14 @@ function kill_404_redirect_wpse_92103() {
     }
 }
 add_action('template_redirect','kill_404_redirect_wpse_92103',1);
+
+function add_body_class_if_webp_support($classes) {
+    if(strpos($_SERVER['HTTP_ACCEPT'], 'image/webp')){
+        $classes[] = 'webp-support';
+    }
+    return $classes;
+}
+add_filter('body_class', 'add_body_class_if_webp_support');
 
 function vancoufur_show_latest_news() {
     $the_query = new WP_Query( array(

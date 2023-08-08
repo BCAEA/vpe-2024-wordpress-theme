@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /*!
-Theme Name: Vancoufur 2024 WordPress Theme
-Theme URI: https://github.com/sonicer105/vf-2024
-Author: Vancoufur, LinuxPony
-Author URI: https://vancoufur.org/
-Description: WordPress Theme for Vancoufur 2024. Released under the GPL.
-Version: 1.6.0
+Theme Name: Vanhoover Pony Expo 2024 WordPress Theme
+Theme URI: https://github.com/sonicer105/vpe-2024
+Author: Vanhoover, LinuxPony
+Author URI: https://vanhoover.ca/
+Description: WordPress Theme for Vanhoover Pony Expo 2024. Released under the GPL.
+Version: 1.7.0
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column
@@ -14,29 +14,44 @@ Text Domain: vancoufur
 Based on BlankSlate WordPress Theme © 2011-2019 TidyThemes
 BlankSlate is distributed under the terms of the GNU GPL
 */
-/* Minerva Bold */
+/* Roboto */
 @font-face {
-  font-family: "Minerva";
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/Roboto-Regular.eot"); /* IE9 */
+  src: url("./fonts/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("./fonts/Roboto-Regular.woff2") format("woff2"), url("./fonts/Roboto-Regular.woff") format("woff"), url("./fonts/Roboto-Regular.ttf") format("truetype"), url("./fonts/Roboto-Regular.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/Roboto-Italic.eot"); /* IE9 */
+  src: url("./fonts/Roboto-Italic.eot?#iefix") format("embedded-opentype"), url("./fonts/Roboto-Italic.woff2") format("woff2"), url("./fonts/Roboto-Italic.woff") format("woff"), url("./fonts/Roboto-Italic.ttf") format("truetype"), url("./fonts/Roboto-Italic.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+@font-face {
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(./fonts/minerva-bold.woff);
+  src: url("./fonts/Roboto-700.eot"); /* IE9 */
+  src: url("./fonts/Roboto-700.eot?#iefix") format("embedded-opentype"), url("./fonts/Roboto-700.woff2") format("woff2"), url("./fonts/Roboto-700.woff") format("woff"), url("./fonts/Roboto-700.ttf") format("truetype"), url("./fonts/Roboto-700.svg#Roboto") format("svg"); /* Legacy iOS */
 }
-/* Minerva Regular */
 @font-face {
-  font-family: "Minerva";
-  font-style: normal;
-  font-weight: 400;
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 700;
   font-display: swap;
-  src: url(./fonts/minerva-regular.woff);
+  src: url("./fonts/Roboto-700italic.eot"); /* IE9 */
+  src: url("./fonts/Roboto-700italic.eot?#iefix") format("embedded-opentype"), url("./fonts/Roboto-700italic.woff2") format("woff2"), url("./fonts/Roboto-700italic.woff") format("woff"), url("./fonts/Roboto-700italic.ttf") format("truetype"), url("./fonts/Roboto-700italic.svg#Roboto") format("svg"); /* Legacy iOS */
 }
-/* Smythe Regular */
+/* Tiamat Condensed SC Regular */
 @font-face {
-  font-family: "Smythe";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(./fonts/smythe-regular.woff2) format("woff2");
+  font-family: "Tiamat Condensed SC";
+  src: url("./fonts/tiamat-condensed-sc-regular.eot");
+  src: url("./fonts/tiamat-condensed-sc-regular.eot?#iefix") format("embedded-opentype"), url("./fonts/tiamat-condensed-sc-regular.woff2") format("woff2"), url("./fonts/tiamat-condensed-sc-regular.woff") format("woff"), url("./fonts/tiamat-condensed-sc-regular.ttf") format("truetype"), url("./fonts/tiamat-condensed-sc-regular.svg#Tiamat Condensed SC Regular Regular") format("svg");
 }
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
@@ -150,7 +165,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /*#region General Style */
 html {
-  font-family: "Smythe", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 b, strong {
@@ -162,7 +177,7 @@ i, em {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Minerva", sans-serif;
+  font-family: "Tiamat Condensed SC", sans-serif;
 }
 
 h1 {
@@ -224,10 +239,6 @@ html, body {
   min-height: 100%;
 }
 
-#container {
-  font-size: 24pt;
-}
-
 html.admin-bar {
   height: calc(100% - 32px);
 }
@@ -242,10 +253,10 @@ body {
 }
 
 a:link, a:visited {
-  color: #c06c29;
+  color: #a77c30;
 }
 a:hover, a:active {
-  color: #d78645;
+  color: #c99841;
 }
 
 ul {
@@ -297,7 +308,7 @@ input[type=password], textarea {
 /*#endregion*/
 /*#region Container Layout */
 #content {
-  max-width: 1600px;
+  max-width: 1200px;
   width: auto;
   margin: 0 auto 1em auto;
 }
@@ -312,9 +323,6 @@ input[type=password], textarea {
   width: 100%;
   height: 500px;
   object-fit: cover;
-}
-#content .nav-spacer {
-  height: 4rem;
 }
 #content .entry-column-wrapper img {
   display: block;
@@ -335,26 +343,6 @@ input[type=password], textarea {
     height: 1rem;
   }
 }
-body.page-template-page-bg-no-title #wrapper,
-body.page-template-page-bg-with-title #wrapper,
-body.blog #wrapper,
-body.single.single-post #wrapper {
-  background: #bfb7ac url(./img/bg.png) repeat-y;
-  background-size: 100% auto;
-}
-body.page-template-page-bg-no-title.webp-support #wrapper,
-body.page-template-page-bg-with-title.webp-support #wrapper,
-body.blog.webp-support #wrapper,
-body.single.single-post.webp-support #wrapper {
-  background-image: url(./img/bg.webp);
-}
-body.page-template-page-bg-no-title #content article,
-body.page-template-page-bg-with-title #content article,
-body.blog #content article,
-body.single.single-post #content article {
-  padding-top: 0;
-}
-
 .news-wrapper .news-title {
   font-weight: normal;
   padding: 1rem 0;
@@ -390,29 +378,27 @@ body.single.single-post #content article {
 
 /*#endregion*/
 /*#region Header & Navigation */
-#menu {
-  font-family: "Minerva", sans-serif;
+.nav-container {
+  background-color: #d8d3be;
+  border-bottom: 2px solid #c99841;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.nav-container #menu {
   z-index: 100;
-  background-color: #000000;
-  color: #ffffff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 0 1rem;
-  font-size: 1.5em;
+  color: #000;
+  margin: 0 auto;
+  max-width: 1200px;
 }
-#menu a {
+.nav-container #menu a {
   text-decoration: none;
-  font-weight: bold;
 }
-#menu a:link, #menu a:visited {
-  color: #ffffff;
+.nav-container #menu a:link, .nav-container #menu a:visited {
+  color: #000;
 }
-#menu a:hover, #menu a:active {
-  color: #d78645;
+.nav-container #menu a:hover, .nav-container #menu a:active {
+  color: #c99841;
 }
-#menu .menu-toggle-mobile {
+.nav-container #menu .menu-toggle-mobile {
   display: none;
   position: absolute;
   top: 0;
@@ -424,98 +410,101 @@ body.single.single-post #content article {
   z-index: 10;
 }
 @media screen and (max-width: 1350px) {
-  #menu .menu-toggle-mobile {
+  .nav-container #menu .menu-toggle-mobile {
     display: inline-table;
   }
 }
-#menu .nav-wrapper {
-  text-transform: uppercase;
-}
 @media screen and (max-width: 1350px) {
-  #menu .nav-wrapper {
+  .nav-container #menu .nav-wrapper {
     height: 4rem;
     transition: 250ms height;
   }
 }
-#menu .nav-wrapper ul {
+.nav-container #menu .nav-wrapper ul {
   list-style: none;
   padding-left: 0;
 }
-#menu .nav-wrapper .menu-wrapper {
+.nav-container #menu .nav-wrapper .menu-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
 }
-#menu .nav-wrapper .menu-wrapper #head-nav-img {
+.nav-container #menu .nav-wrapper .menu-wrapper #head-nav-img {
   flex-grow: 1;
 }
-#menu .nav-wrapper .menu-wrapper #head-nav-img img {
+.nav-container #menu .nav-wrapper .menu-wrapper #head-nav-img img {
   height: 2.5rem;
   object-fit: contain;
   transition: 250ms height;
 }
 @media screen and (max-width: 1350px) {
-  #menu .nav-wrapper .menu-wrapper #head-nav-img img {
+  .nav-container #menu .nav-wrapper .menu-wrapper #head-nav-img img {
     height: 3.5rem;
   }
 }
 @media screen and (max-width: 678px) {
-  #menu .nav-wrapper .menu-wrapper #head-nav-img img {
+  .nav-container #menu .nav-wrapper .menu-wrapper #head-nav-img img {
     max-width: 180px;
   }
 }
-#menu .nav-wrapper .main-menu > ul {
+.nav-container #menu .nav-wrapper .main-menu > ul {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
-#menu .nav-wrapper .main-menu > ul li {
+.nav-container #menu .nav-wrapper .main-menu > ul li {
   flex-shrink: 0;
 }
-#menu .nav-wrapper .main-menu > ul > .menu-item > a {
+.nav-container #menu .nav-wrapper .main-menu > ul > .menu-item > a {
   display: block;
   padding: 1.5rem 0.5rem;
 }
-#menu .nav-wrapper .main-menu > ul > .menu-item > a .svg-inline--fa.fa-caret-down {
+.nav-container #menu .nav-wrapper .main-menu > ul > .menu-item > a .svg-inline--fa.fa-caret-down {
   font-size: 1rem;
 }
-#menu .nav-wrapper .main-menu > ul a {
+.nav-container #menu .nav-wrapper .main-menu > ul a {
   transition: 250ms color;
 }
-#menu .nav-wrapper .main-menu > ul .current_page_item a, #menu .nav-wrapper .main-menu > ul .current-menu-ancestor > a {
-  color: #d78645;
+.nav-container #menu .nav-wrapper .main-menu > ul .current_page_item a, .nav-container #menu .nav-wrapper .main-menu > ul .current-menu-ancestor > a {
+  color: #c99841;
 }
-#menu .nav-wrapper .main-menu > ul .menu-item-has-children {
+.nav-container #menu .nav-wrapper .main-menu > ul .menu-item-has-children {
   position: relative;
 }
-#menu .nav-wrapper .main-menu > ul .menu-item-has-children .sub-menu {
+.nav-container #menu .nav-wrapper .main-menu > ul .menu-item-has-children .sub-menu {
   position: absolute;
   z-index: 9;
   top: -1000vh;
   left: 0;
   padding: 0;
-  background: #000000;
+  background: #d8d3be;
   width: auto;
 }
-#menu .nav-wrapper .main-menu > ul .menu-item-has-children .sub-menu .menu-item > a {
+@media screen and (min-width: 1351px) {
+  .nav-container #menu .nav-wrapper .main-menu > ul .menu-item-has-children .sub-menu {
+    border: 2px solid #c99841;
+    border-top: none;
+  }
+}
+.nav-container #menu .nav-wrapper .main-menu > ul .menu-item-has-children .sub-menu .menu-item > a {
   display: block;
   padding: 0.75rem 1rem;
   width: 100%;
   white-space: nowrap;
 }
-#menu .nav-wrapper .main-menu > ul .menu-item-has-children:hover .sub-menu {
+.nav-container #menu .nav-wrapper .main-menu > ul .menu-item-has-children:hover .sub-menu {
   top: 100%;
 }
 @media screen and (max-width: 1350px) {
-  #menu .nav-wrapper {
+  .nav-container #menu .nav-wrapper {
     flex-direction: column;
     align-items: flex-start;
     justify-content: normal;
     overflow: hidden;
   }
-  #menu .nav-wrapper .menu-wrapper {
+  .nav-container #menu .nav-wrapper .menu-wrapper {
     display: block;
     width: 100%;
     height: auto;
@@ -523,24 +512,24 @@ body.single.single-post #content article {
     align-items: center;
     justify-content: normal;
   }
-  #menu .nav-wrapper .menu-wrapper img {
+  .nav-container #menu .nav-wrapper .menu-wrapper img {
     display: block;
     height: 3.5rem;
     margin: 0.25rem auto;
   }
-  #menu .nav-wrapper .menu-wrapper .main-menu > ul {
+  .nav-container #menu .nav-wrapper .menu-wrapper .main-menu > ul {
     flex-direction: column;
     justify-content: normal;
     align-items: flex-start;
   }
-  #menu .nav-wrapper .menu-wrapper a, #menu .nav-wrapper .menu-wrapper li, #menu .nav-wrapper .menu-wrapper ul, #menu .nav-wrapper .menu-wrapper div {
+  .nav-container #menu .nav-wrapper .menu-wrapper a, .nav-container #menu .nav-wrapper .menu-wrapper li, .nav-container #menu .nav-wrapper .menu-wrapper ul, .nav-container #menu .nav-wrapper .menu-wrapper div {
     width: 100%;
   }
-  #menu .nav-wrapper .menu-wrapper .menu-item-has-children:hover .sub-menu {
+  .nav-container #menu .nav-wrapper .menu-wrapper .menu-item-has-children:hover .sub-menu {
     position: relative !important;
     padding-left: 1em !important;
   }
-  #menu .nav-wrapper #search {
+  .nav-container #menu .nav-wrapper #search {
     padding: 0.5rem;
   }
 }
@@ -565,7 +554,7 @@ html.admin-bar body:not(.vc_editor) #menu {
 
 @media screen and (max-width: 1350px) {
   #menu.active .menu-toggle-mobile {
-    color: #d78645;
+    color: #c99841;
   }
   #menu.active .nav-wrapper {
     height: 100vh;
@@ -594,7 +583,6 @@ html.admin-bar body:not(.vc_editor) #menu {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-family: "Minerva", sans-serif;
 }
 @media (max-width: 768px) {
   #footer #footer-menu {
@@ -616,14 +604,13 @@ html.admin-bar body:not(.vc_editor) #menu {
 #footer #footer-menu .widget-area a {
   display: block;
   padding: 1rem 0;
-  text-transform: uppercase;
   text-decoration: none;
 }
 #footer #footer-menu .widget-area a:link, #footer #footer-menu .widget-area a:visited {
   color: #ffffff;
 }
 #footer #footer-menu .widget-area a:hover, #footer #footer-menu .widget-area a:active {
-  color: #d78645;
+  color: #c99841;
 }
 #footer #footer-menu .widget-area .social-links {
   padding-left: unset;
@@ -645,12 +632,15 @@ html.admin-bar body:not(.vc_editor) #menu {
   display: none;
 }
 
+#header #search.active .search-form {
+  transition: 250ms;
+}
+
 #header .search-form {
   overflow: hidden;
   width: 2em;
   white-space: nowrap;
   background: transparent;
-  transition: 250ms;
 }
 #header .search-form label {
   display: inline-block;
@@ -674,16 +664,16 @@ html.admin-bar body:not(.vc_editor) #menu {
   transition: 250ms;
 }
 #header .search-form .search-submit:hover, #header .search-form .toggle-hide:hover {
-  color: #6ef0ed;
+  color: #c99841;
 }
 #header .search-form .toggle-hide {
-  color: #ffffff;
+  color: #000000;
 }
 #header .search-form .toggle-hide.active {
-  color: #6ef0ed;
+  color: #c99841;
 }
 
-@media screen and (min-width: 1351px) and (max-width: 1549px) {
+@media screen and (min-width: 1351px) {
   .nav-wrapper {
     position: relative;
   }
@@ -864,25 +854,46 @@ aside .post-date {
 
 .button, .button:link, .button:hover, .button:active, .button:visited {
   display: inline-block;
-  background: #000000;
+  background-color: #d8d3be;
   text-decoration: none;
   padding: 0.75em;
   text-align: center;
-  border-radius: 0.25em;
-  color: #ffffff;
-  transition: 200ms color;
-}
-.button.inverted, .button:link.inverted, .button:hover.inverted, .button:active.inverted, .button:visited.inverted {
   color: #000000;
-  background: #ffffff;
+  transition: 100ms background-color;
 }
 .button.disabled, .button:link.disabled, .button:hover.disabled, .button:active.disabled, .button:visited.disabled {
   color: #999;
-  background: #666;
+  background-color: #666;
+}
+.button.cta, .button:link.cta, .button:hover.cta, .button:active.cta, .button:visited.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 274px;
+  height: 56px;
+  margin: 4px;
+}
+.button.cta .svg-inline--fa, .button:link.cta .svg-inline--fa, .button:hover.cta .svg-inline--fa, .button:active.cta .svg-inline--fa, .button:visited.cta .svg-inline--fa {
+  padding-right: 0.5em;
+}
+.button.cta:after, .button:link.cta:after, .button:hover.cta:after, .button:active.cta:after, .button:visited.cta:after {
+  content: " ";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  bottom: -4px;
+  right: -4px;
+  background: url("./img/btn.png");
+  pointer-events: none;
+}
+
+body.webp-support .button.cta:after, body.webp-support .button:link.cta:after, body.webp-support .button:hover.cta:after, body.webp-support .button:active.cta:after, body.webp-support .button:visited.cta:after {
+  background: url("./img/btn.webp");
 }
 
 .button:hover, .button:active {
-  color: #ff0000;
+  background-color: #b2a87e;
 }
 
 .post-image-and-excerpt {
@@ -1174,7 +1185,7 @@ aside .widget-container ul li:nth-child(odd) {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
 }
 #return-to-top:hover, #return-to-top:active, #go-to-cart:hover, #go-to-cart:active {
-  color: #ff0000;
+  color: #c99841;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 #return-to-top span, #go-to-cart span {
@@ -1194,7 +1205,7 @@ aside .widget-container ul li:nth-child(odd) {
   right: 1em;
   width: 1.5em;
   height: 1.5em;
-  background: #ff0000;
+  background: #c99841;
   color: #ffffff;
 }
 
@@ -1378,19 +1389,62 @@ aside .widget-container ul li:nth-child(odd) {
   height: 2.7rem;
 }
 
-.woocommerce #respond input#submit.alt,
-.woocommerce a.button.alt,
-.woocommerce button.button.alt,
-.woocommerce input.button.alt {
-  background-color: #000;
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button:hover {
+  background-color: #d8d3be;
+  color: #000;
+  font-weight: normal;
   transition: background-color 250ms;
+  border-radius: 0;
 }
 
-.woocommerce #respond input#submit.alt:hover,
-.woocommerce a.button.alt:hover,
-.woocommerce button.button.alt:hover,
-.woocommerce input.button.alt:hover {
-  background-color: #666;
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button:hover {
+  background-color: #b2a87e;
 }
 
 .woocommerce #respond input#submit.alt.disabled,
