@@ -1,6 +1,6 @@
-# vf-2024
+# vpe-2024
 
-WordPress Theme used by Vancoufur in 2024.
+WordPress Theme used by Vanhoover Pony Expo in 2024.
 
 Boilerplate Blank WordPress Theme by TidyThemes was used as a base.
 
